@@ -25,7 +25,7 @@ df["rating"] = df["rating"].map(rating_map)
 #converting availability into true\false
 df["in_stock"] = df["availability"].str.strip() == "In stock"
 #creating price in indian rupees 
-df["price_inr"] = df["price_gbp"] * 129.28
+df["price_inr"] = df["price_gbp"] * 105.50
 #checking null values 
 print("\n Missing Values:")
 print(df.isna().sum())
