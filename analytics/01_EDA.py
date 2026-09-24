@@ -7,6 +7,10 @@ import os
 #loading dataset
 df = sns.load_dataset("titanic")
 print("\n Dataset loading successfully completed")
+# save a local copy
+df.to_csv("analytics/titanic.csv", index=False)
+print("Titanic dataset saved successfully")
+print("Shape:", df.shape)
 # create charts folder
 os.makedirs("analytics/charts", exist_ok=True)
 #basic data profile

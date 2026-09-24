@@ -67,11 +67,11 @@ Duplicate records and missing values were checked.
 
 The fixed conversion rate used in this project is:
 
-1 GBP = 129.28 INR
+1 GBP = 105.50 INR
 
 The INR price was calculated using:
 
-price_inr = price_gbp * 129.28
+price_inr = price_gbp * 105.50
 
 ## Database Design
 
