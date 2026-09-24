@@ -22,7 +22,7 @@ analytics/
 ├── README.md
 ├── titanic.csv
 ├── titanic_cleaned_data.csv
-├── EDA_analysis.py
+├── 01_EDA.py
 ├── model_training.py
 ├── titanic_pipeline.joblib
 ├── models/
