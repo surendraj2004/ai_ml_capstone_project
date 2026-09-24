@@ -16,3 +16,4 @@ __pycache__/
 .DS_Store
 Thumbs.dbsupport_assistant/requirement.txt
 support_assistant/run.sh
+support_assistant/app.py
