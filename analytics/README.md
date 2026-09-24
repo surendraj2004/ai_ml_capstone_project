@@ -1,21 +1,21 @@
-# Module 2 - Analytics
-
 ## Overview
 
-This module focuses on Exploratory Data Analysis (EDA), data preprocessing, classification, regression, model evaluation, and saving the final machine learning pipeline using the Titanic dataset.
+This module focuses on Exploratory Data Analysis (EDA), data preprocessing,
+classification, regression, model evaluation, and saving the final machine
+learning pipeline using the Titanic dataset.
 
 ## Dataset
 
-The Titanic dataset is loaded using:
+The Titanic dataset is loaded using Seaborn:
 
 ```python
 sns.load_dataset("titanic")
 
-After loading, the dataset is saved locally as:
+After loading, a local copy is saved as:
 
 analytics/titanic.csv
 
-All further analysis and modeling uses the saved dataset.
+All further analysis and modeling uses the locally saved dataset.
 
 Files
 analytics/
@@ -27,26 +27,40 @@ analytics/
 ├── titanic_pipeline.joblib
 ├── models/
 └── outputs/
-README.md - Module documentation
-titanic.csv - Original Titanic dataset
-titanic_cleaned_data.csv - Cleaned dataset
-EDA_analysis.py - EDA and preprocessing
+File Description
+README.md - Documentation for the Analytics module
+titanic.csv - Local copy of the Titanic dataset
+titanic_cleaned_data.csv - Cleaned Titanic dataset
+EDA_analysis.py - Exploratory data analysis and preprocessing
 model_training.py - Classification and regression models
 titanic_pipeline.joblib - Saved machine learning pipeline
 models/ - Model files
 outputs/ - Charts and analysis outputs
-1. Exploratory Data Analysis
+1. Data Understanding
 
 The dataset is analyzed using:
 
-Shape
+Dataset shape
 Data types
-Dataset information
-Descriptive statistics
+info()
+describe()
 Missing values
 Missing-value percentages
+2. Missing Value Handling
 
-Age and Fare are analyzed using histograms and box plots.
+Missing values are analyzed for all affected columns.
+
+The following approach is used:
+
+Less than 5% missing values → drop rows
+5% to 30% missing values → impute values
+High missing values → drop or encode missing values with justification
+3. Exploratory Data Analysis
+
+Histograms and box plots are created for:
+
+Age
+Fare
 
 Fare is analyzed using:
 
@@ -54,28 +68,18 @@ Mean
 Median
 Mode
 Skewness
-2. Missing Value Handling
 
-Missing values are handled based on their percentage:
-
-Less than 5% → drop rows
-5% to 30% → impute values
-High missing values → drop or encode missing values with justification
-3. Outlier Analysis
-
-Outliers are analyzed using the IQR method.
-
-Box plots are used to visualize outliers, especially for Age and Fare.
+Outliers are identified using the IQR method.
 
 4. Survival Analysis
 
-Survival is analyzed based on:
+Survival is analyzed using:
 
 Sex
 Passenger class
 Sex and passenger class
 
-Boolean masking is used for the analysis.
+Boolean masking is used to analyze survival patterns.
 
 5. Correlation Analysis
 
@@ -88,9 +92,13 @@ sibsp
 parch
 fare
 
-adult_male and alone are excluded.
+The columns adult_male and alone are excluded.
 
-A heatmap is created to identify relationships between numerical variables. The two strongest absolute off-diagonal correlations are also interpreted.
+A correlation heatmap is created to understand relationships between
+the numerical variables.
+
+The two strongest absolute off-diagonal correlations are identified
+and interpreted.
 
 6. Multivariate Analysis
 
@@ -108,7 +116,8 @@ Each chart includes a short interpretation.
 
 Age and Fare are standardized using StandardScaler.
 
-The mean and standard deviation are compared before and after standardization.
+The mean and standard deviation are compared before and after
+standardization.
 
 8. Classification
 
@@ -116,7 +125,7 @@ The target variable is:
 
 survived
 
-Three classification models are used:
+Three classification algorithms are used:
 
 Logistic Regression
 Decision Tree
@@ -130,11 +139,12 @@ Missing-value imputation
 Categorical encoding
 Numerical scaling
 
-ColumnTransformer and Pipeline are used so that preprocessing is fitted only on the training data.
+ColumnTransformer and Pipeline are used for preprocessing and
+model training.
 
 9. Classification Evaluation
 
-The models are evaluated using:
+The classification models are evaluated using:
 
 Confusion Matrix
 Accuracy
@@ -144,7 +154,7 @@ F1 Score
 ROC-AUC
 10. Class Imbalance
 
-Different approaches are compared:
+Class imbalance is analyzed using:
 
 Baseline model
 class_weight="balanced"
@@ -152,7 +162,9 @@ SMOTE
 
 SMOTE is applied only to the training data.
 
-11. Random Forest Tuning
+The results are compared using classification metrics.
+
+11. Random Forest Hyperparameter Tuning
 
 GridSearchCV is used to tune the Random Forest model.
 
@@ -162,8 +174,11 @@ n_estimators
 max_depth
 max_features
 
-The best parameters and OOB score are reported.
+The best parameters are reported.
 
+The Random Forest OOB score is also reported using:
+
+oob_score=True
 12. Regression
 
 A regression model is used to predict:
@@ -183,31 +198,34 @@ A residual plot is created and checked for heteroscedasticity.
 
 13. Model Comparison
 
-Classification models are compared using classification metrics.
+The classification models are compared using classification metrics.
 
 The regression model is evaluated separately using regression metrics.
 
-A final comparison table and short written recommendation are provided based on the observed results.
+A final comparison table is created and a short written recommendation
+is provided based on the observed results.
 
 14. Model Saving
 
-The complete fitted pipeline is saved using Joblib:
+The complete fitted machine learning pipeline is saved using Joblib:
 
 titanic_pipeline.joblib
 
-The saved pipeline is reloaded and tested with raw input data to confirm that it can generate predictions.
+The saved pipeline is reloaded and tested with raw input data to confirm
+that it can generate predictions.
 
 15. How to Run
 
-From the project root:
+From the project root, run:
 
 python analytics/EDA_analysis.py
 
-Then:
+Then run:
 
 python analytics/model_training.py
 
-Generated charts, tables, and model files are stored in the appropriate outputs/ and models/ folders.
+The generated charts, tables, and model files are stored in the
+outputs/ and models/ folders.
 
 Technologies Used
 Python
@@ -223,7 +241,7 @@ Titanic Dataset
       ↓
 Data Understanding
       ↓
-EDA
+Exploratory Data Analysis
       ↓
 Missing Value Handling
       ↓
@@ -237,7 +255,7 @@ Train-Test Split
       ↓
 Preprocessing
       ↓
-Classification
+Classification Models
       ↓
 Model Evaluation
       ↓
