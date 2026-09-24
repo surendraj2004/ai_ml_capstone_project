@@ -27,16 +27,6 @@ analytics/
 ├── titanic_pipeline.joblib
 ├── models/
 └── outputs/
-File Description
-README.md - Documentation for the Analytics module
-titanic.csv - Local copy of the Titanic dataset
-titanic_cleaned_data.csv - Cleaned Titanic dataset
-EDA_analysis.py - Exploratory data analysis and preprocessing
-model_training.py - Classification and regression models
-titanic_pipeline.joblib - Saved machine learning pipeline
-models/ - Model files
-outputs/ - Charts and analysis outputs
-1. Data Understanding
 
 The dataset is analyzed using:
 
@@ -218,7 +208,7 @@ that it can generate predictions.
 
 From the project root, run:
 
-python analytics/EDA_analysis.py
+python analytics/01_EDA.py
 
 Then run:
 
